@@ -4,13 +4,14 @@
 
 using namespace std;
 using namespace cv;
+using namespace boost;
 
-Mat imageLoad(string const path, ImreadModes const read_mode)
+Mat imageLoad(filesystem::path const path, cv::ImreadModes const read_mode)
 {
-    return imread(path, read_mode);
+    return imread(path.string(), read_mode);
 }
 
-bool imageSave(Mat const image, string const path)
+bool imageSave(Mat const image, filesystem::path const path)
 {
-    return imwrite(path, image);
+    return imwrite(path.string(), image);
 }
