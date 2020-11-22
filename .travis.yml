@@ -1,0 +1,42 @@
+# first we define the build matrix
+language: c++
+os: linux
+arch:
+  - amd64
+  - arm64
+
+# job phases are then executed in the following order
+
+# OPTIONAL Install apt addons (https://docs.travis-ci.com/user/installing-dependencies)
+# OPTIONAL Install cache components (https://docs.travis-ci.com/user/caching)
+
+# before the install phase
+# before_install:
+
+# install any dependencies required
+install: skip
+
+# before the script phase
+# before_script:
+
+# run the build script
+script: 
+  - make
+  - ./build/main
+
+# OPTIONAL before_cache (if and only if caching is effective)
+
+# when the build succeeds (e.g. building documentation), 
+# the result is in TRAVIS_TEST_RESULT environment variable
+# after_success:
+
+# when the build fails (e.g. uploading log files), 
+# the result is in TRAVIS_TEST_RESULT environment variable
+# after_failure: 
+
+# OPTIONAL before_deploy (if and only if deployment is active)
+# OPTIONAL deploy
+# OPTIONAL after_deploy (if and only if deployment is active)
+
+# after the script phase
+# after_script:
