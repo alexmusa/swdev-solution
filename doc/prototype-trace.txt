@@ -1,0 +1,37 @@
+Feature Detection
+https://docs.opencv.org/4.5.0/d7/d66/tutorial_feature_detection.html
+
+Fix for SURF patented algorithm in OpenCV later versions
+https://colab.research.google.com/drive/1p7McfxQdXSD32KO3jPFigejiiTQjKivp#scrollTo=wfWZCo71chNA
+
+Feature detection
+https://docs.opencv.org/4.5.0/d7/d66/tutorial_feature_detection.html
+
+Feature description
+https://docs.opencv.org/4.5.0/d5/dde/tutorial_feature_description.html
+
+Feature mtaching with FLANN
+https://docs.opencv.org/4.5.0/d5/d6f/tutorial_feature_flann_matcher.html
+
+Available matchers
+knnMatch() or match()
+https://docs.opencv.org/3.4/db/d39/classcv_1_1DescriptorMatcher.html
+
+Change color to match matching-keypoints.jpg sample
+https://docs.opencv.org/master/d4/d5d/group__features2d__draw.html
+https://docs.opencv.org/master/dc/da5/tutorial_py_drawing_functions.html
+
+Choosing the right feature detector
+https://ieeexplore.ieee.org/document/8346440
+
+Selecting a ROI
+https://docs.opencv.org/4.5.0/d5/d98/tutorial_mat_operations.html
+
+Converting to Grayscale
+https://docs.opencv.org/master/dc/da5/tutorial_py_drawing_functions.html
+
+Numpy copyto
+https://numpy.org/doc/stable/reference/generated/numpy.copyto.html
+https://numpy.org/doc/stable/reference/generated/numpy.where.html#numpy.where
+https://numpy.org/doc/stable/reference/generated/numpy.dtype.html
+https://numpy.org/doc/stable/reference/generated/numpy.ndarray.astype.html
