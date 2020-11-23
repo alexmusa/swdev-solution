@@ -8,6 +8,12 @@ arch:
 # job phases are then executed in the following order
 
 # OPTIONAL Install apt addons (https://docs.travis-ci.com/user/installing-dependencies)
+addons:
+  apt:
+    packages:
+    - libopencv-dev
+    - libboost-filesystem-dev
+
 # OPTIONAL Install cache components (https://docs.travis-ci.com/user/caching)
 
 # before the install phase
