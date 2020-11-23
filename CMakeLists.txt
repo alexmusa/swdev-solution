@@ -10,7 +10,7 @@ set(LIBRARIES opencv_core opencv_imgcodecs boost_filesystem boost_system)
 file(GLOB SOURCES "${PROJECT_SOURCE_DIR}/src/*.cpp")
 
 # set(OPENCV_ENABLE_NONFREE)
-add_subdirectory(extern/opencv)
+# add_subdirectory("${PROJECT_SOURCE_DIR}/extern/opencv")
 
 add_executable(main main.cpp ${SOURCES})
 target_include_directories(main PRIVATE "${PROJECT_SOURCE_DIR}/include")

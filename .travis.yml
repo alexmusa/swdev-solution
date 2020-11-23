@@ -12,14 +12,24 @@ addons:
   apt:
     packages:
     - libboost-filesystem-dev
-    
+    - libopenexr-dev 
+    - libjpeg-dev 
+    - libtiff-dev
+
 # OPTIONAL Install cache components (https://docs.travis-ci.com/user/caching)
 
 # before the install phase
 # before_install:
 
 # install any dependencies required
-install: skip
+install:
+  - git clone https://github.com/opencv/opencv.git
+  - cd opencv
+  - git checkout 4.5.0
+  - mkdir build
+  - cmake -H. -Bbuild
+  - cmake --build build --target install -- -j $(nproc)
+
 
 # before the script phase
 # before_script:
