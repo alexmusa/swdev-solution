@@ -4,6 +4,7 @@ os: linux
 arch:
   - amd64
   - arm64
+sudo: true
 
 # job phases are then executed in the following order
 
@@ -23,12 +24,7 @@ addons:
 
 # install any dependencies required
 install:
-  - git clone https://github.com/opencv/opencv.git
-  - cd opencv
-  - git checkout 4.5.0
-  - mkdir build
-  - cmake -H. -Bbuild
-  - cmake --build build --target install -- -j $(nproc)
+  - ./install-opencv.sh
 
 
 # before the script phase
