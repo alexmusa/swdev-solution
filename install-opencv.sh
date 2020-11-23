@@ -16,6 +16,6 @@ cmake -H. -Bbuild \
 -DBUILD_opencv_highgui=OFF \
 -DBUILD_opencv_gapi=OFF \
 -DBUILD_opencv_ml=OFF \
--DBUILD_opencv_js=OFF \
+-DBUILD_opencv_js=OFF
 sudo cmake --build build --target install -- -j $(nproc)
 cd ..
