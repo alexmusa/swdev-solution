@@ -21,7 +21,7 @@ install: skip
 
 # run the build script
 script: 
-  - mkdir build && cmake --build ./build --config Release --target all -- -j $(nproc)
+  - mkdir build && cmake --build build --config Release --target all -- -j $(nproc)
   - ./build/tests/data_test
 
 # OPTIONAL before_cache (if and only if caching is effective)
