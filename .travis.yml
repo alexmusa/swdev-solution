@@ -4,7 +4,7 @@ os: linux
 arch:
   - amd64
   - arm64
-sudo: true
+sudo: required
 
 # job phases are then executed in the following order
 
