@@ -13,7 +13,8 @@ file(GLOB SOURCES "${PROJECT_SOURCE_DIR}/src/*.cpp")
 # add_subdirectory("${PROJECT_SOURCE_DIR}/extern/opencv")
 
 add_executable(main main.cpp ${SOURCES})
-target_include_directories(main PRIVATE "${PROJECT_SOURCE_DIR}/include")
+#TODO: Have include for Travis CI define elsewhere
+target_include_directories(main PRIVATE "${PROJECT_SOURCE_DIR}/include" PRIVATE "/usr/local/include/opencv4/include")
 target_compile_options(main PRIVATE ${WARNING_FLAGS})
 target_link_libraries(main PUBLIC ${LIBRARIES})
 
