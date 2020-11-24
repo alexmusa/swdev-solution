@@ -2,7 +2,7 @@
 
 cd /tmp
 git clone https://github.com/opencv/opencv.git
-cd opencv
+cd /tmp/opencv
 git checkout 4.5.0
 
 # Configure
@@ -23,5 +23,3 @@ cmake -H. -Bbuild \
 
 # Build and install
 sudo env "PATH=$PATH" cmake --build build --target install -- -j $(nproc)
-
-cd /home/travis/build/alexmusa/swdev-solution
