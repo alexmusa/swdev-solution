@@ -13,11 +13,17 @@ WORKDIR /tmp/cmake-3.10.3
 RUN ./bootstrap && make && make install
 
 WORKDIR /
+RUN git clone https://github.com/opencv/opencv_contrib.git
 RUN git clone https://github.com/opencv/opencv.git
+WORKDIR /opencv_contrib
+RUN git checkout 4.5.0
 WORKDIR /opencv
 RUN git checkout 4.5.0
+
 RUN mkdir -p build
 RUN cmake -H. -Bbuild \
+    -DOPENCV_ENABLE_NONFREE=ON \
+    -DOPENCV_EXTRA_MODULES_PATH=../opencv_contrib/modules \
     -DBUILD_opencv_videoio=OFF \
     -DBUILD_opencv_video=OFF \
     -DBUILD_opencv_ts=OFF \

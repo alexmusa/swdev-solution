@@ -1,2 +1,2 @@
 #!/bin/sh
-docker build --tag alexmusa/beerbeervodka-rest-api:debug .
+docker build --tag alexmusa/swdev:debug .
