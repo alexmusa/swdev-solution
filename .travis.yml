@@ -36,7 +36,7 @@ install:
 # run the build script
 script: 
   - export LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:/usr/local/lib"
-  - rm -r build && mkdir -p build
+  - mkdir -p build
   - cmake -H. -Bbuild
   - cmake --build build --config Release --target all -- -j $(nproc)
   - ./build/tests/data_test
