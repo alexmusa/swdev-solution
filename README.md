@@ -43,3 +43,5 @@ docker run alexmusa/swdev:debug ./build/main <source_image> <destination_image> 
 ## Tests
 
 There is only one unit/intergration test so far. I can be run using the executable `./build/tests/data_test` or simply by running the Docker container.
+
+[## Improvements](doc/PossibleImprovements.md)
