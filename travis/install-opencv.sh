@@ -1,9 +1,12 @@
 #!/bin/sh
 
+cd /tmp
 git clone https://github.com/opencv/opencv.git
 cd opencv
 git checkout 4.5.0
-mkdir build
+
+# Configure
+mkdir -p build
 cmake -H. -Bbuild \
 -DBUILD_opencv_videoio=OFF \
 -DBUILD_opencv_video=OFF \
@@ -17,5 +20,8 @@ cmake -H. -Bbuild \
 -DBUILD_opencv_gapi=OFF \
 -DBUILD_opencv_ml=OFF \
 -DBUILD_opencv_js=OFF
+
+# Build and install
 sudo env "PATH=$PATH" cmake --build build --target install -- -j $(nproc)
-cd ..
+
+cd /home/travis/build/alexmusa/swdev-solution

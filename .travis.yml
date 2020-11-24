@@ -1,5 +1,4 @@
 # first we define the build matrix
-language: c++
 os: linux
 arch:
   - amd64
@@ -12,6 +11,9 @@ sudo: required
 addons:
   apt:
     packages:
+    - git
+    - build-essential
+    - wget
     - libboost-filesystem-dev
     - libopenexr-dev 
     - libjpeg-dev 
@@ -24,7 +26,8 @@ addons:
 
 # install any dependencies required
 install:
-  - ./install-opencv.sh
+  - ./travis/install-cmake.sh
+  - ./travis/install-opencv.sh
 
 
 # before the script phase
@@ -32,7 +35,8 @@ install:
 
 # run the build script
 script: 
-  - mkdir build
+  - export LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:/usr/local/lib"
+  - rm -r build && mkdir -p build
   - cmake -H. -Bbuild
   - cmake --build build --config Release --target all -- -j $(nproc)
   - ./build/tests/data_test
