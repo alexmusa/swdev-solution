@@ -48,4 +48,4 @@ COPY . .
 RUN rm -r build || mkdir -p build
 RUN cmake -H. -Bbuild
 RUN cmake --build build --config Release --target all -- -j $(nproc)
-# RUN ./build/tests/data_test
+CMD ./build/tests/data_test
