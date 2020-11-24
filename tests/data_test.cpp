@@ -25,8 +25,9 @@ TEST(DataTest, CanLoadDataset) {
 }
 
 TEST(DataTest, SaveAndLoad) {
+    //TODO: Do not use build/ as directory for temporary test files
     filesystem::path src = filesystem::current_path() / filesystem::path("tests/datasets/hill-rgb-0007.png");
-    filesystem::path dst = filesystem::current_path() / filesystem::path("build/Testing/Temporary/hill-rgb-0007-saved.png");
+    filesystem::path dst = filesystem::current_path() / filesystem::path("build/hill-rgb-0007-saved.png");
     
     Mat image = imageLoad(src, IMREAD_UNCHANGED);
     imageSave(image, dst);
