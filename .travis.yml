@@ -26,8 +26,8 @@ addons:
 
 # install any dependencies required
 install:
-  - ./travis/install-cmake.sh
-  - ./travis/install-opencv.sh
+  - sudo ./travis/install-cmake.sh
+  - sudo ./travis/install-opencv.sh
 
 
 # before the script phase
