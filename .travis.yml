@@ -40,6 +40,7 @@ script:
   - cmake -H. -Bbuild
   - cmake --build build --config Release --target all -- -j $(nproc)
   - ./build/tests/data_test
+  - ./build/main ${TRAVIS_BUILD_DIR}/tests/datasets/hill-ir-rot-0007.png ${TRAVIS_BUILD_DIR}/tests/datasets/hill-rgb-0007.png ${TRAVIS_BUILD_DIR}/build/ 160 180 360 380
 
 # OPTIONAL before_cache (if and only if caching is effective)
 
