@@ -37,7 +37,9 @@ RUN cmake --build build --target install -- -j $(nproc)
 WORKDIR /swdev
 ENV LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:/usr/local/lib"
 COPY . .
-RUN rm -r build && mkdir -p build
+# unlike on Travis instances, here the build directory will be copied to the image if it exists
+#TODO: Prevent build directory and other uneeded files to be copied to the image
+RUN rm -r build || mkdir -p build
 RUN cmake -H. -Bbuild
 RUN cmake --build build --config Release --target all -- -j $(nproc)
 # RUN ./build/tests/data_test
