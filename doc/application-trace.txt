@@ -1,0 +1,69 @@
+Job Lifecycle
+https://docs.travis-ci.com/user/job-lifecycle
+
+Comments added for my convinience
+
+Improve the Travis build process
+https://docs.travis-ci.com/user/speeding-up-the-build/
+
+Build the Docker image on Travis CI
+https://docs.travis-ci.com/user/docker/
+
+Which branches Travis build on? Pull requests? 
+https://docs.travis-ci.com/user/pull-requests/
+
+GoogleTest framework
+https://developer.ibm.com/technologies/systems/articles/au-googletestingframework/
+
+    cropImage();
+    detectFeatures();
+    matchFeatures();
+    computeHomography();
+
+APT package to install
+libgtest-dev
+libopencv-dev
+libboost-filesystem-dev
+
+Boost filesystem::path
+https://www.boost.org/doc/libs/1_66_0/libs/filesystem/doc/reference.html
+
+Codecvt
+https://en.cppreference.com/w/cpp/locale/codecvt
+
+Matrix comparison
+https://docs.opencv.org/master/d3/d63/classcv_1_1Mat.html
+
+Package libgtest-dev only installing source files
+https://stackoverflow.com/questions/24295876/cmake-cannot-find-googletest-required-library-in-ubuntu
+
+CMake and GoogleTest
+https://cliutils.gitlab.io/modern-cmake/chapters/testing/googletest.html
+https://cmake.org/cmake/help/v3.10/module/GoogleTest.html
+
+submodule added using:
+git submodule add --branch release-1.10.0 https://github.com/google/googletest.git extern/googletest
+git submodule update --init --recursive 
+
+git submodule add https://github.com/opencv/opencv.git extern/opencv
+git submodule update --init --recursive 
+
+
+libopenexr-dev libjpeg-dev libtiff-dev
+
+-DBUILD_opencv_videoio=OFF
+-DBUILD_opencv_video=OFF
+-DBUILD_opencv_ts=OFF
+-DBUILD_opencv_stitching=OFF
+-DBUILD_opencv_python_tests=OFF
+-DBUILD_opencv_python_bindings_generator=OFF
+-DBUILD_opencv_python3=OFF
+-DBUILD_opencv_java_bindings_generator=OFF
+-DBUILD_opencv_highgui=OFF
+-DBUILD_opencv_gapi=OFF
+-DBUILD_opencv_ml=OFF
+-DBUILD_opencv_js=OFF
+
+Installing newer version of CMake
+https://cmake.org/install/
+https://cmake.org/download/
