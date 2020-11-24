@@ -1,0 +1,43 @@
+FROM ubuntu:xenial
+
+RUN apt-get update && apt-get install -y \
+    git \
+    build-essential \
+    libboost-filesystem-dev \
+    wget
+
+WORKDIR /tmp
+RUN wget https://cmake.org/files/v3.10/cmake-3.10.3.tar.gz
+RUN tar -xzvf cmake-3.10.3.tar.gz
+WORKDIR /tmp/cmake-3.10.3
+RUN ./bootstrap && make && make install
+
+WORKDIR /
+RUN git clone https://github.com/opencv/opencv.git
+WORKDIR /opencv
+RUN git checkout 4.5.0
+RUN mkdir -p build
+RUN cmake -H. -Bbuild \
+    -DBUILD_opencv_videoio=OFF \
+    -DBUILD_opencv_video=OFF \
+    -DBUILD_opencv_ts=OFF \
+    -DBUILD_opencv_stitching=OFF \
+    -DBUILD_opencv_python_tests=OFF \
+    -DBUILD_opencv_python_bindings_generator=OFF \
+    -DBUILD_opencv_python3=OFF \
+    -DBUILD_opencv_java_bindings_generator=OFF \
+    -DBUILD_opencv_highgui=OFF \
+    -DBUILD_opencv_gapi=OFF \
+    -DBUILD_opencv_ml=OFF \
+    -DBUILD_opencv_js=OFF
+RUN cmake --build build --target install -- -j $(nproc)
+# on Travis, use the following command instead
+# RUN sudo env "PATH=$PATH" cmake --build build --target install -- -j $(nproc)
+
+WORKDIR /swdev
+ENV LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:/usr/local/lib"
+COPY . .
+RUN rm -r build && mkdir -p build
+RUN cmake -H. -Bbuild
+RUN cmake --build build --config Release --target all -- -j $(nproc)
+# RUN ./build/tests/data_test
