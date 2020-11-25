@@ -4,13 +4,15 @@ RUN apt-get update && apt-get install -y \
     git \
     build-essential \
     libboost-filesystem-dev \
+    curl libssl-dev libcurl4-openssl-dev \
+    zlib1g-dev \
     wget
 
 WORKDIR /tmp
 RUN wget https://cmake.org/files/v3.10/cmake-3.10.3.tar.gz
 RUN tar -xzvf cmake-3.10.3.tar.gz
 WORKDIR /tmp/cmake-3.10.3
-RUN ./bootstrap && make && make install
+RUN ./bootstrap --system-curl && make && make install
 
 WORKDIR /
 RUN git clone https://github.com/opencv/opencv_contrib.git
